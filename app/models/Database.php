@@ -2,6 +2,10 @@
 
 // $dsn = 'pgsql:' . "host=pg-38747106-shawngenese25.k.aivencloud.com;dbname=NotelyUsersDB;port=17259";
 
+namespace App;
+
+use PDO;
+
 class Database
 {
     private $connection;
@@ -17,7 +21,7 @@ class Database
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 PDO::ATTR_EMULATE_PREPARES => false
             ]);
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo "Connection Error: " . $e->getMessage();
         }
     }
